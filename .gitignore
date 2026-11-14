@@ -1,0 +1,22 @@
+# وابستگی‌ها
+node_modules/
+.pnp
+.pnp.*
+
+# خروجی بیلد
+.next/
+out/
+build/
+
+# داده‌های محلی سفارش‌ها
+.data/
+
+# متغیرهای محیطی
+.env*.local
+
+# سیستم‌عامل و ادیتور
+.DS_Store
+Thumbs.db
+*.log
+.vercel
+next-env.d.ts
