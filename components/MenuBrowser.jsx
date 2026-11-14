@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { categories, getItem, menuItems } from "@/lib/menu";
 import { formatNumber, formatPrice } from "@/lib/format";
@@ -52,8 +53,16 @@ function Stepper({ qty, onAdd, onDec, onInc, name }) {
 function ProductCard({ item, qty, add, increment, decrement }) {
   return (
     <article className="flex flex-col items-center text-center">
-      <div className="cup-cell w-full max-w-[104px]">
-        <CupArt item={item} className="h-auto w-full" />
+      <div className="cup-cell w-full max-w-[116px]">
+        <div className="relative aspect-square w-full overflow-hidden rounded-full border border-espresso/10 bg-plate">
+          <Image
+            src={`/images/${item.image}.jpg`}
+            alt={item.name}
+            fill
+            sizes="(max-width: 640px) 40vw, 120px"
+            className="object-cover"
+          />
+        </div>
       </div>
       <h3 className="mt-3 text-[13px] font-medium text-espresso">{item.name}</h3>
       <span className="price mt-1 text-[13px] text-espresso/80">{formatPrice(item.price)}</span>
@@ -130,16 +139,27 @@ export default function MenuBrowser() {
                 data-cup={item.id}
                 className="sig-panel col-span-3 mt-6 grid-cols-1 items-center gap-6 border-y border-espresso/15 py-7 sm:col-span-6 sm:mt-8 sm:grid-cols-[1fr_auto] sm:gap-10"
               >
-                <div>
-                  <h3 className="font-display text-2xl leading-snug text-espresso sm:text-3xl">
-                    {item.name}
-                  </h3>
-                  <p className="mt-1 text-[11px] font-light tracking-wide text-copper">
-                    {categoryLabel(item.category)}
-                  </p>
-                  <p className="mt-3 max-w-lg text-[13px] font-light leading-7 text-muted">
-                    {item.desc}
-                  </p>
+                <div className="flex items-center gap-4 sm:gap-5">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-espresso/10 sm:h-20 sm:w-20">
+                    <Image
+                      src={`/images/${item.image}.jpg`}
+                      alt={item.name}
+                      fill
+                      sizes="80px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl leading-snug text-espresso sm:text-3xl">
+                      {item.name}
+                    </h3>
+                    <p className="mt-1 text-[11px] font-light tracking-wide text-copper">
+                      {categoryLabel(item.category)}
+                    </p>
+                    <p className="mt-3 max-w-lg text-[13px] font-light leading-7 text-muted">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex items-end justify-between gap-6 sm:flex-col sm:items-end sm:gap-4">

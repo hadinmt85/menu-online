@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useCart } from "./CartProvider";
 import { formatNumber, formatPrice, formatPhone, toEnDigits } from "@/lib/format";
 import { TAX_RATE } from "@/lib/menu";
-import CupArt from "./CupArt";
 
 const initialForm = { name: "", phone: "", type: "dine-in", table: "", note: "" };
 
@@ -234,8 +234,14 @@ export default function CartDrawer() {
                           key={line.id}
                           className="flex gap-3 border-b border-espresso/10 py-4 last:border-b-0"
                         >
-                          <div className="h-16 w-16 shrink-0">
-                            <CupArt item={line.item} className="h-full w-full" />
+                          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-espresso/10">
+                            <Image
+                              src={`/images/${line.item.image}.jpg`}
+                              alt=""
+                              fill
+                              sizes="64px"
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0 flex-1">
                             <div className="flex items-start justify-between gap-2">
