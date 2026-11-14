@@ -8,10 +8,10 @@ import CartToast, { MobileCartBar } from "@/components/CartToast";
 
 const vazirmatn = localFont({
   src: [
+    { path: "../public/fonts/vazirmatn-300.woff2", weight: "300", style: "normal" },
     { path: "../public/fonts/vazirmatn-400.woff2", weight: "400", style: "normal" },
     { path: "../public/fonts/vazirmatn-500.woff2", weight: "500", style: "normal" },
     { path: "../public/fonts/vazirmatn-700.woff2", weight: "700", style: "normal" },
-    { path: "../public/fonts/vazirmatn-900.woff2", weight: "900", style: "normal" },
   ],
   variable: "--font-vazir",
   display: "swap",
@@ -31,7 +31,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#FAF5EE",
+  themeColor: "#3B2418",
   width: "device-width",
   initialScale: 1,
 };
@@ -39,11 +39,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl" className={vazirmatn.variable}>
-      <body className="min-h-screen overflow-x-hidden">
-        <div
-          aria-hidden="true"
-          className="grain pointer-events-none fixed inset-0 z-10 opacity-[0.03] mix-blend-multiply"
-        />
+      <body className="min-h-screen overflow-x-hidden bg-cream">
         <CartProvider>
           <Header />
           <main>{children}</main>

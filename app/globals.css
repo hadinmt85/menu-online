@@ -1,22 +1,32 @@
-/* ---------- فونت تیتر (Lalezar) ---------- */
+/* ---------- فونت تیتر: Aref Ruqaa ---------- */
 @font-face {
-  font-family: "Lalezar";
-  src: url("/fonts/lalezar-arabic.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Aref Ruqaa";
+  src: url("/fonts/aref-ruqaa-arabic-700.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+200C-200D, U+2010-2011,
-    U+FB50-FDFF, U+FE70-FEFF;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+200C-200D, U+FB50-FDFF,
+    U+FE70-FEFF;
 }
 
 @font-face {
-  font-family: "Lalezar";
-  src: url("/fonts/lalezar-latin.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Aref Ruqaa";
+  src: url("/fonts/aref-ruqaa-latin-700.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2122,
-    U+2191, U+2193, U+2212, U+2215;
+  unicode-range: U+0000-00FF, U+2000-206F, U+2122;
+}
+
+/* ---------- فونت قیمت: Noto Naskh Arabic ---------- */
+@font-face {
+  font-family: "Noto Naskh Arabic";
+  src: url("/fonts/noto-naskh-arabic-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+200C-200D, U+FB50-FDFF,
+    U+FE70-FEFF;
 }
 
 @tailwind base;
@@ -30,11 +40,11 @@
 
   body {
     @apply bg-cream font-sans text-ink antialiased;
-    text-rendering: optimizeLegibility;
+    font-weight: 400;
   }
 
   ::selection {
-    @apply bg-copper/25 text-espresso;
+    @apply bg-copper text-cream;
   }
 
   :focus-visible {
@@ -43,20 +53,17 @@
 
   h1,
   h2,
-  h3,
-  h4 {
-    text-wrap: balance;
-  }
-
-  p {
-    text-wrap: pretty;
+  h3 {
+    @apply font-display font-bold;
+    line-height: 1.5;
   }
 }
 
 @layer components {
-  /* بافت نویز بسیار ملایم */
-  .grain {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* قیمت‌ها با خط نسخ */
+  .price {
+    @apply font-price font-bold;
+    letter-spacing: 0.01em;
   }
 
   .no-scrollbar {
@@ -68,45 +75,53 @@
     display: none;
   }
 
-  .divider-dots {
-    background-image: radial-gradient(circle, rgba(59, 36, 24, 0.18) 1px, transparent 1px);
-    background-size: 12px 2px;
-    background-repeat: repeat-x;
-  }
-}
-
-/* ---------- ظاهر شدن نرم هنگام اسکرول ---------- */
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .reveal {
-      animation: reveal-up linear both;
-      animation-timeline: view();
-      animation-range: entry 6% entry 55%;
-    }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  /* ---------- ردیف فنجان‌های منو (انتخاب فقط با CSS) ---------- */
+  .cup-cell {
+    transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1), color 200ms ease;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .cup-cell:hover {
+    transform: translateY(-8px) rotate(-2.5deg);
+  }
+
+  .cup-cell:has(input:focus-visible) {
+    @apply rounded-full outline-none ring-2 ring-copper ring-offset-4 ring-offset-cream;
+  }
+
+  .cup-cell .cup-name {
+    @apply border-b border-transparent pb-0.5 transition-colors duration-200;
+  }
+
+  .sig-panel {
+    display: none;
+  }
+
+  /* هر فنجان انتخاب‌شده: بالا آمدن + زیرخط مسی */
+  .sig:has(#sig-matcha:checked) .cup-cell[data-cup="matcha"],
+  .sig:has(#sig-icematcha:checked) .cup-cell[data-cup="icematcha"],
+  .sig:has(#sig-chamomile:checked) .cup-cell[data-cup="chamomile"],
+  .sig:has(#sig-herbaltea:checked) .cup-cell[data-cup="herbaltea"],
+  .sig:has(#sig-greentea:checked) .cup-cell[data-cup="greentea"],
+  .sig:has(#sig-blacktea:checked) .cup-cell[data-cup="blacktea"] {
+    transform: translateY(-10px);
+  }
+
+  .sig:has(#sig-matcha:checked) .cup-cell[data-cup="matcha"] .cup-name,
+  .sig:has(#sig-icematcha:checked) .cup-cell[data-cup="icematcha"] .cup-name,
+  .sig:has(#sig-chamomile:checked) .cup-cell[data-cup="chamomile"] .cup-name,
+  .sig:has(#sig-herbaltea:checked) .cup-cell[data-cup="herbaltea"] .cup-name,
+  .sig:has(#sig-greentea:checked) .cup-cell[data-cup="greentea"] .cup-name,
+  .sig:has(#sig-blacktea:checked) .cup-cell[data-cup="blacktea"] .cup-name {
+    @apply border-copper text-espresso;
+  }
+
+  /* پنل نوشیدنی انتخاب‌شده */
+  .sig:has(#sig-matcha:checked) .sig-panel[data-cup="matcha"],
+  .sig:has(#sig-icematcha:checked) .sig-panel[data-cup="icematcha"],
+  .sig:has(#sig-chamomile:checked) .sig-panel[data-cup="chamomile"],
+  .sig:has(#sig-herbaltea:checked) .sig-panel[data-cup="herbaltea"],
+  .sig:has(#sig-greentea:checked) .sig-panel[data-cup="greentea"],
+  .sig:has(#sig-blacktea:checked) .sig-panel[data-cup="blacktea"] {
+    display: grid;
   }
 }
