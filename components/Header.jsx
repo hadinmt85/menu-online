@@ -67,7 +67,7 @@ export default function Header() {
           </span>
           <span className="sm:hidden">سبد</span>
           {count > 0 && (
-            <span className="grid h-5 min-w-[1.25rem] place-items-center rounded-full bg-copper px-1 text-[10px] font-bold text-cream">
+            <span className="grid h-5 min-w-[1.25rem] place-items-center rounded-full bg-copperDeep px-1 text-[10px] font-bold text-cream">
               {formatNumber(count)}
             </span>
           )}

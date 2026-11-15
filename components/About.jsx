@@ -49,7 +49,7 @@ export default function About() {
           <ol className="divide-y divide-espresso/15 border-y border-espresso/15">
             {values.map((value, index) => (
               <li key={value.title} className="flex gap-5 py-6 first:pt-7 last:pb-7">
-                <span className="price w-8 shrink-0 text-[13px] text-copper">
+                <span className="price w-8 shrink-0 text-[13px] text-mocha">
                   {formatNumber(index + 1)}
                 </span>
                 <div>

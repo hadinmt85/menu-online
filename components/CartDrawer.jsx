@@ -201,7 +201,7 @@ export default function CartDrawer() {
 
             <button
               type="button"
-              className="mt-6 w-full rounded-full bg-copper px-6 py-3 text-sm font-light text-cream transition-colors duration-200 hover:bg-mocha"
+              className="mt-6 w-full rounded-full bg-copperDeep px-6 py-3 text-sm font-light text-cream transition-colors duration-200 hover:bg-mocha"
               onClick={startNewOrder}
             >
               سفارش جدید
@@ -434,7 +434,7 @@ export default function CartDrawer() {
                 {step === "cart" ? (
                   <button
                     type="button"
-                    className="w-full rounded-full bg-copper px-6 py-3 text-sm font-light text-cream transition-colors duration-200 hover:bg-mocha"
+                    className="w-full rounded-full bg-copperDeep px-6 py-3 text-sm font-light text-cream transition-colors duration-200 hover:bg-mocha"
                     onClick={() => setStep("checkout")}
                   >
                     ادامه و تکمیل اطلاعات
@@ -452,7 +452,7 @@ export default function CartDrawer() {
                       type="submit"
                       form="checkout-form"
                       disabled={submitting}
-                      className="rounded-full bg-copper px-5 py-3 text-sm font-light text-cream transition-colors duration-200 hover:bg-mocha disabled:cursor-not-allowed disabled:opacity-60"
+                      className="rounded-full bg-copperDeep px-5 py-3 text-sm font-light text-cream transition-colors duration-200 hover:bg-mocha disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       {submitting ? "در حال ثبت…" : "ثبت نهایی سفارش"}
                     </button>

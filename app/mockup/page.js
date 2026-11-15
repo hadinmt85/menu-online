@@ -13,7 +13,7 @@ export default function MockupPage() {
     <main>
       <section className="bg-espresso pb-12 pt-24 text-cream sm:pb-16">
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] font-light tracking-wide text-copper">نمونه‌ی چیدمان</p>
+          <p className="text-[11px] font-light tracking-wide text-amber">نمونه‌ی چیدمان</p>
           <h1 className="mt-3 font-display text-[32px] leading-[1.5] sm:text-[46px]">
             منوی تحریریه<span className="text-copper">.</span>
           </h1>
@@ -84,7 +84,7 @@ export default function MockupPage() {
                       </p>
 
                       {item.tags.length > 0 && (
-                        <p className="mt-3 text-[11px] font-light tracking-wide text-copper">
+                        <p className="mt-3 text-[11px] font-light tracking-wide text-mocha">
                           {item.tags.join(" · ")}
                         </p>
                       )}
@@ -102,7 +102,7 @@ export default function MockupPage() {
           <div className="border-t border-espresso/15 pt-8 text-center">
             <Link
               href="/"
-              className="inline-block rounded-full bg-copper px-7 py-3 text-[13px] font-light text-cream transition-colors duration-200 hover:bg-mocha"
+              className="inline-block rounded-full bg-copperDeep px-7 py-3 text-[13px] font-light text-cream transition-colors duration-200 hover:bg-mocha"
             >
               برگشت به منوی اصلی
             </Link>

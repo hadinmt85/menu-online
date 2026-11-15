@@ -16,7 +16,7 @@ function Stepper({ qty, onAdd, onDec, onInc, name }) {
     return (
       <button
         type="button"
-        className="border-b border-copper/50 pb-0.5 text-[12px] font-light text-copper transition-colors duration-200 hover:border-copper hover:text-mocha"
+        className="border-b border-mocha/40 pb-0.5 text-[12px] font-light text-mocha transition-colors duration-200 hover:border-mocha hover:text-espresso"
         onClick={onAdd}
         aria-label={`افزودن ${name} به سبد`}
       >
@@ -153,7 +153,7 @@ export default function MenuBrowser() {
                     <h3 className="font-display text-2xl leading-snug text-espresso sm:text-3xl">
                       {item.name}
                     </h3>
-                    <p className="mt-1 text-[11px] font-light tracking-wide text-copper">
+                    <p className="mt-1 text-[11px] font-light tracking-wide text-mocha">
                       {categoryLabel(item.category)}
                     </p>
                     <p className="mt-3 max-w-lg text-[13px] font-light leading-7 text-muted">
@@ -169,7 +169,7 @@ export default function MenuBrowser() {
                   <button
                     type="button"
                     onClick={() => add(item.id)}
-                    className="rounded-full bg-copper px-6 py-2.5 text-[13px] font-light text-cream transition-colors duration-200 hover:bg-mocha"
+                    className="rounded-full bg-copperDeep px-6 py-2.5 text-[13px] font-light text-cream transition-colors duration-200 hover:bg-mocha"
                   >
                     افزودن به سبد
                   </button>

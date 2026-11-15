@@ -54,7 +54,7 @@ export default function Hero() {
           <div className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
             <a
               href="#menu"
-              className="rounded-full bg-copper px-8 py-3.5 text-sm font-medium text-cream transition-colors duration-200 hover:bg-mocha"
+              className="rounded-full bg-copperDeep px-8 py-3.5 text-sm font-medium text-cream transition-colors duration-200 hover:bg-mocha"
             >
               دیدن منو
             </a>
