@@ -233,17 +233,8 @@ export default function MenuBrowser() {
             </p>
           )}
 
-          <p className="mt-14 text-center text-[11px] font-light leading-6 text-muted">
+          <p className="mt-12 text-center text-[11px] font-light leading-6 text-muted">
             همه‌ی قیمت‌ها به تومان است و ۹٪ مالیات بر ارزش افزوده در فاکتور محاسبه می‌شود.
-          </p>
-
-          <p className="mt-3 text-center">
-            <a
-              href="/mockup"
-              className="border-b border-espresso/30 pb-0.5 text-[11px] font-light text-espresso transition-colors duration-200 hover:border-espresso"
-            >
-              یک نمونه‌ی چیدمان دیگر برای همین منو
-            </a>
           </p>
         </div>
       </div>
