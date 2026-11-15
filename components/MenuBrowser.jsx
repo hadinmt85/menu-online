@@ -53,19 +53,19 @@ function Stepper({ qty, onAdd, onDec, onInc, name }) {
 function ProductCard({ item, qty, add, increment, decrement }) {
   return (
     <article className="flex flex-col items-center text-center">
-      <div className="cup-cell w-full max-w-[116px]">
+      <div className="cup-cell w-full max-w-[152px] sm:max-w-[210px] lg:max-w-[240px]">
         <div className="relative aspect-square w-full overflow-hidden rounded-full border border-espresso/10 bg-plate">
           <Image
             src={`/images/${item.image}.jpg`}
             alt={item.name}
             fill
-            sizes="(max-width: 640px) 40vw, 120px"
+            sizes="(max-width: 640px) 44vw, (max-width: 1024px) 30vw, 240px"
             className="object-cover"
           />
         </div>
       </div>
-      <h3 className="mt-3 text-[13px] font-medium text-espresso">{item.name}</h3>
-      <span className="price mt-1 text-[13px] text-espresso/80">{formatPrice(item.price)}</span>
+      <h3 className="mt-4 text-[14px] font-medium text-espresso">{item.name}</h3>
+      <span className="price mt-1 text-[14px] text-espresso/80">{formatPrice(item.price)}</span>
       <div className="mt-3">
         <Stepper
           qty={qty}
@@ -215,7 +215,7 @@ export default function MenuBrowser() {
           </div>
 
           {filtered.length > 0 ? (
-            <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4">
+            <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-12 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-16">
               {filtered.map((item) => (
                 <ProductCard
                   key={item.id}
@@ -233,8 +233,17 @@ export default function MenuBrowser() {
             </p>
           )}
 
-          <p className="mt-12 text-center text-[11px] font-light leading-6 text-muted">
+          <p className="mt-14 text-center text-[11px] font-light leading-6 text-muted">
             همه‌ی قیمت‌ها به تومان است و ۹٪ مالیات بر ارزش افزوده در فاکتور محاسبه می‌شود.
+          </p>
+
+          <p className="mt-3 text-center">
+            <a
+              href="/mockup"
+              className="border-b border-espresso/30 pb-0.5 text-[11px] font-light text-espresso transition-colors duration-200 hover:border-espresso"
+            >
+              یک نمونه‌ی چیدمان دیگر برای همین منو
+            </a>
           </p>
         </div>
       </div>
