@@ -16,10 +16,13 @@ function Stepper({ qty, onAdd, onDec, onInc, name }) {
     return (
       <button
         type="button"
-        className="border-b border-mocha/40 pb-0.5 text-[12px] font-light text-mocha transition-colors duration-200 hover:border-mocha hover:text-espresso"
+        className="inline-flex items-center gap-1.5 rounded-full bg-copperDeep px-4 py-2 text-[12px] font-normal text-cream transition-colors duration-200 hover:bg-mocha active:bg-espresso"
         onClick={onAdd}
         aria-label={`افزودن ${name} به سبد`}
       >
+        <span aria-hidden="true" className="text-[14px] leading-none">
+          +
+        </span>
         افزودن
       </button>
     );
