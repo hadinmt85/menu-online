@@ -234,7 +234,7 @@ export default function CartDrawer() {
                           key={line.id}
                           className="flex gap-3 border-b border-espresso/10 py-4 last:border-b-0"
                         >
-                          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-espresso/10">
+                          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-espresso/10">
                             <Image
                               src={`/images/${line.item.image}.jpg`}
                               alt=""

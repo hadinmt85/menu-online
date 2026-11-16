@@ -57,7 +57,7 @@ function ProductCard({ item, qty, add, increment, decrement }) {
   return (
     <article className="flex flex-col items-center text-center">
       <div className="cup-cell w-full max-w-[152px] sm:max-w-[210px] lg:max-w-[240px]">
-        <div className="relative aspect-square w-full overflow-hidden rounded-full border border-espresso/10 bg-plate">
+        <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-espresso/10 bg-plate">
           <Image
             src={`/images/${item.image}.jpg`}
             alt={item.name}
@@ -143,7 +143,7 @@ export default function MenuBrowser() {
                 className="sig-panel col-span-3 mt-6 grid-cols-1 items-center gap-6 border-y border-espresso/15 py-7 sm:col-span-6 sm:mt-8 sm:grid-cols-[1fr_auto] sm:gap-10"
               >
                 <div className="flex items-center gap-4 sm:gap-5">
-                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-espresso/10 sm:h-20 sm:w-20">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-espresso/10 sm:h-20 sm:w-20">
                     <Image
                       src={`/images/${item.image}.jpg`}
                       alt={item.name}
