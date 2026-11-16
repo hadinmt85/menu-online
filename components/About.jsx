@@ -26,7 +26,7 @@ const contactRows = [
 export default function About() {
   return (
     <>
-      <section id="about" className="bg-plate py-16 sm:py-24" aria-labelledby="about-title">
+      <section id="about" className="bg-cream py-16 sm:py-24" aria-labelledby="about-title">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20 lg:px-8">
           <div>
             <h2

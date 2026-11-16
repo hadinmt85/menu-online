@@ -31,6 +31,10 @@ const config: Config = {
       maxWidth: {
         content: "72rem",
       },
+      boxShadow: {
+        soft: "0 2px 12px -4px rgba(59, 36, 24, 0.14)",
+        card: "0 14px 34px -18px rgba(59, 36, 24, 0.4)",
+      },
       transitionTimingFunction: {
         spring: "cubic-bezier(0.34, 1.56, 0.64, 1)",
       },
